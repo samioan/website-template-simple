@@ -5,32 +5,51 @@
   width: 100%;
   height: calc(100vh-112px);
 }
+
 .row1 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding-top: 8em;
 }
 .row2 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-direction: row-reverse;
+  padding-top: 8em;
 }
 .row3 {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  padding-top: 8em;
 }
 .photo-image {
   width: 696px;
   height: 368px;
   background: transparent url("images/photo-image.png") 0% 0% no-repeat
     padding-box;
+  z-index: 0;
 }
+
 .text-body1 {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
+.text-body2 {
+  width: 1064px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  padding-left: 4em;
+  padding-right: 4em;
+}
+
 .small-title {
   text-align: left;
   font: normal normal bold 16px/19px Montserrat;
@@ -60,6 +79,13 @@
   height: 424px;
   background: transparent url("images/cushion-image.png") 0% 0% no-repeat
     padding-box;
+  z-index: 0;
+  -webkit-transition: -webkit-transform 0.2 ease-in-out;
+  transition: transform 0.2s ease-in-out;
+}
+.photo-image2:hover {
+  -webkit-transform: matrix(-1, 0, 0, -1, 0, 0);
+  transform: matrix(-1, 0, 0, -1, 0, 0);
 }
 .button {
   width: 240px;
@@ -79,6 +105,11 @@
 .button:focus {
   outline: none;
 }
+.button:hover {
+  background: #3e00d4 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000066;
+  border-radius: 42px;
+}
 .photo-image3 {
   width: 1390px;
   height: 1032px;
@@ -87,6 +118,7 @@
 }
 
 .input-button {
+  font-family: "Montserrat", sans-serif;
   width: 696px;
   height: 56px;
   border: 2px solid #4b00ff;
@@ -96,12 +128,14 @@
   letter-spacing: 0px;
   color: #000000;
   text-decoration: none;
+  font-size: 16px;
 }
 .input-button:focus {
   outline: none;
 }
 .helper-text {
   text-align: right;
+  width: 100%;
   font: normal normal normal 12px/15px Montserrat;
   letter-spacing: 0px;
   color: #000000;
@@ -110,9 +144,11 @@
 .category-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
 }
 .dropdown-button {
+  font-family: "Montserrat", sans-serif;
   width: 328px;
   height: 56px;
   border: 2px solid #4b00ff;
@@ -129,7 +165,6 @@
   border: 2px solid #4b00ff;
   border-radius: 28px;
   text-align: left;
-  font: normal normal medium 16px/24px Montserrat;
   letter-spacing: 0px;
   color: #000000;
   text-decoration: none;
@@ -137,7 +172,13 @@
 .message-button:focus {
   outline: none;
 }
+textarea {
+  font-family: "Montserrat", sans-serif;
+  font: normal normal medium 16px/24px Montserrat;
+  font-size: 16px;
+}
 .helper-text2 {
+  width: 100%;
   text-align: left;
   font: normal normal normal 16px/16px Montserrat;
   letter-spacing: 0px;
@@ -165,14 +206,17 @@
   height: 56px;
 }
 .options-container {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
 }
 .options {
-  width: 67px;
+  width: 72px;
   height: 19px;
   text-align: left;
+  font-size: 16px;
   font: normal normal medium 16px/24px Montserrat;
   letter-spacing: 0px;
   color: #000000;
@@ -192,8 +236,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 .copyright-text {
+  padding-left: 4em;
   width: 255px;
   height: 19px;
   text-align: left;
@@ -208,10 +254,61 @@
   font: normal normal 800 18px/22px Montserrat;
   letter-spacing: 0px;
   color: #ffffff;
+  padding-right: 10em;
 }
 .footer-logo {
+  padding-right: 4em;
   width: 32px;
   height: 32px;
   background: transparent url("images/footer-logo.svg") 0% 0% no-repeat
     padding-box;
+}
+.dropbtn {
+  font-family: "Montserrat", sans-serif;
+  width: 328px;
+  height: 56px;
+  border: 2px solid #4b00ff;
+  border-radius: 28px;
+  padding: 16px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  width: 100%;
+  display: none;
+  position: absolute;
+  border: 2px solid;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: #4b00ff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  border: 2px solid #4b00ff;
+  border-radius: 28px;
+}
+.dropbtn:focus {
+  outline: none;
 }
